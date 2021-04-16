@@ -1,6 +1,8 @@
 import React from 'react'
 import styled from 'styled-components'
 
+// RENDER: <ButtonRectangle>text</ButtonRectangle> or <ButtonRectangle secondary>text</ButtonRectangle>
+
 const ButtonRectangle = ({ children, ...otherProps }) => (
     <StyledButton type="button" {...otherProps}>
         {children}

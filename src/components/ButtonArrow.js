@@ -2,10 +2,12 @@ import React from 'react'
 import styled from 'styled-components'
 import Arrow from '../assets/shared/desktop/arrow.svg'
 
+// RENDER: <ButtonArrow>text</ButtonArrow> or <ButtonArrow secondary>text</ButtonArrow>
+
 const ButtonArrow = ({ children, ...otherProps }) => (
     <StyledButton type="button" {...otherProps}>
         {children}
-        <StyledArrow {...otherProps} />
+        <StyledArrow />
     </StyledButton>
 )
 
@@ -21,6 +23,7 @@ const StyledButton = styled.button`
     background-color: transparent;
     text-transform: uppercase;
     color: ${props => (props.secondary ? `var(--white)` : `var(--black)`)};
+    stroke: ${props => (props.secondary ? `var(--white)` : `var(--black)`)};
     transition: all 0.2s ease-in-out;
 
     &:hover {
@@ -30,5 +33,4 @@ const StyledButton = styled.button`
 
 const StyledArrow = styled(Arrow)`
     margin-left: 1rem;
-    stroke: ${props => (props.secondary ? `var(--white)` : `var(--black)`)};
 `
