@@ -14,9 +14,6 @@ const GlobalStyles = createGlobalStyle`
   html {
     font-size: 10px;
   }
-  img {
-    max-width: 100%;
-  }
   
 `
 
