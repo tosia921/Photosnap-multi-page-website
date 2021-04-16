@@ -1,5 +1,9 @@
 import React from 'react'
 
 export default function Home() {
-    return <p>Hello world!</p>
+    return (
+        <>
+            <h1>DM SAND BOLD</h1>
+        </>
+    )
 }
