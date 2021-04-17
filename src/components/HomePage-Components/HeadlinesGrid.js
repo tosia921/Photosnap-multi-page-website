@@ -2,6 +2,7 @@ import React from 'react'
 import { useStaticQuery, graphql } from 'gatsby'
 import { GatsbyImage, getImage } from 'gatsby-plugin-image'
 import styled from 'styled-components'
+import ButtonArrow from '../ButtonArrow'
 
 const HeadlinesGrid = () => {
     // Quering for images from file
@@ -29,7 +30,18 @@ const HeadlinesGrid = () => {
             <div className="image-1">
                 <GatsbyImage className="hero-image-wrapper" image={image1} alt="numero uno" />
             </div>
-            <div className="content-1">b</div>
+            <div className="content-1">
+                <h1>
+                    CREATE AND <br />
+                    SHARE YOUR <br />
+                    PHOTO STORIES
+                </h1>
+                <p>
+                    Photosnap is a platform for photographers and visual storytellers. We make it easy to share photos,
+                    tell stories and connect with others.
+                </p>
+                <ButtonArrow secondary>GET AN INVITE</ButtonArrow>
+            </div>
             <div className="image-2">
                 <GatsbyImage image={image2} alt="numero duo" />
             </div>
@@ -58,9 +70,21 @@ const StyledHeadlines = styled.section`
     .image-3 {
     }
     .content-1 {
-        height: 50vh;
+        min-height: 50vh;
         width: 100vw;
         background-color: var(--black);
+        color: var(--white);
+        padding: 5rem 3.5rem;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        h1 {
+            margin-top: 0;
+            font-weight: 900;
+        }
+        p {
+            margin-bottom: 3.3rem;
+        }
     }
     .content-2 {
     }

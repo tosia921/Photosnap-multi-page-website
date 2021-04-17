@@ -1,17 +1,23 @@
 import { createGlobalStyle } from 'styled-components'
+import media from './MediaQueries'
 
 const Typography = createGlobalStyle`
   html {
     font-family: 'DM Sans', sans-serif; 
   }
-  h1 {
-    font-size: 4rem;
+  h1,h2 {
+    font-size: 3.2rem;
     font-weight: 700;
-    line-height: 4.8rem;
-    letter-spacing: 4.17px;
+    line-height: 4rem;
+    letter-spacing: 3.3px;
     text-transform: uppercase;
+      ${media.tablet`
+      font-size: 4rem;
+      line-height: 4.8rem;
+      letter-spacing: 4.17px;
+    `}
   }
-  h2 {
+  .smaller-h2 {
     font-size: 2.4rem;
     font-weight: 700;
     line-height: 2.5rem;
@@ -33,7 +39,8 @@ const Typography = createGlobalStyle`
   p {
     font-size: 1.5rem;
     font-weight: 400;
-    line-height: 2.5rem; 
+    line-height: 2.5rem;
+    color: #999999;
   }
 `
 

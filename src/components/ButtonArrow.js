@@ -1,12 +1,11 @@
 import React from 'react'
 import styled from 'styled-components'
-import Arrow from '../assets/shared/desktop/arrow.svg'
-
+import Arrow from '../assets/shared/arrow.svg'
 // RENDER: <ButtonArrow>text</ButtonArrow> or <ButtonArrow secondary>text</ButtonArrow>
 
 const ButtonArrow = ({ children, ...otherProps }) => (
     <StyledButton type="button" {...otherProps}>
-        {children}
+        <span>{children}</span>
         <StyledArrow />
     </StyledButton>
 )
@@ -24,13 +23,19 @@ const StyledButton = styled.button`
     text-transform: uppercase;
     color: ${props => (props.secondary ? `var(--white)` : `var(--black)`)};
     stroke: ${props => (props.secondary ? `var(--white)` : `var(--black)`)};
-    transition: all 0.2s ease-in-out;
+    span {
+        transition: all 0.3s ease-in-out;
+    }
 
     &:hover {
-        text-decoration: underline;
+        span {
+            margin-right: 1rem;
+            text-decoration: underline;
+            color: white;
+        }
     }
 `
 
 const StyledArrow = styled(Arrow)`
-    margin-left: 1rem;
+    margin-left: 0.5rem;
 `
