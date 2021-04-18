@@ -28,7 +28,7 @@ const HeadlinesGrid = () => {
     return (
         <StyledHeadlines>
             <div className="image-1">
-                <GatsbyImage className="hero-image-wrapper" image={image1} alt="numero uno" />
+                <GatsbyImage className="image-wrapper" image={image1} alt="numero uno" />
             </div>
             <div className="content-1">
                 <h1>
@@ -43,11 +43,11 @@ const HeadlinesGrid = () => {
                 <ButtonArrow secondary>GET AN INVITE</ButtonArrow>
             </div>
             <div className="image-2">
-                <GatsbyImage image={image2} alt="numero duo" />
+                <GatsbyImage image={image2} className="image-wrapper" alt="numero duo" />
             </div>
             <div className="content-2">d</div>
             <div className="image-3">
-                <GatsbyImage image={image3} alt="numero tres" />
+                <GatsbyImage image={image3} className="image-wrapper" alt="numero tres" />
             </div>
             <div className="content-3">f</div>
         </StyledHeadlines>
@@ -60,14 +60,14 @@ const StyledHeadlines = styled.section`
     .image-1 {
         height: calc(100vh - 50vh - 7.2rem);
         width: 100vw;
-        .hero-image-wrapper {
-            height: 100%;
-            width: 100%;
-        }
     }
     .image-2 {
+        width: 100%;
+        height: 27rem;
     }
     .image-3 {
+        width: 100%;
+        min-height: 27rem;
     }
     .content-1 {
         min-height: 50vh;
@@ -89,5 +89,9 @@ const StyledHeadlines = styled.section`
     .content-2 {
     }
     .content-3 {
+    }
+    .image-wrapper {
+        height: 100%;
+        width: 100%;
     }
 `
