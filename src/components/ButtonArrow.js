@@ -31,7 +31,6 @@ const StyledButton = styled.button`
         span {
             margin-right: 1rem;
             text-decoration: underline;
-            color: white;
         }
     }
 `

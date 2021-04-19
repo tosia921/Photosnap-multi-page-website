@@ -45,11 +45,32 @@ const HeadlinesGrid = () => {
             <div className="image-2">
                 <GatsbyImage image={image2} className="image-wrapper" alt="numero duo" />
             </div>
-            <div className="content-2">d</div>
+            <div className="content-2">
+                <h2>
+                    BEAUTIFUL <br />
+                    STORIES <br />
+                    EVERY TIME
+                </h2>
+                <p>
+                    We provide design templates to ensure your stories look terrific. Easily add photos, text, embed
+                    maps and media from other networks. Then share your story with everyone.
+                </p>
+                <ButtonArrow>VIEW THE STORIES</ButtonArrow>
+            </div>
             <div className="image-3">
                 <GatsbyImage image={image3} className="image-wrapper" alt="numero tres" />
             </div>
-            <div className="content-3">f</div>
+            <div className="content-3">
+                <h2>
+                    DESIGNED FOR <br />
+                    EVERYONE
+                </h2>
+                <p>
+                    Photosnap can help you create stories that resonate with your audience. Our tool is designed for
+                    photographers of all levels, brands, businesses you name it.
+                </p>
+                <ButtonArrow>VIEW THE STORIES</ButtonArrow>
+            </div>
         </StyledHeadlines>
     )
 }
@@ -61,13 +82,9 @@ const StyledHeadlines = styled.section`
         height: calc(100vh - 50vh - 7.2rem);
         width: 100vw;
     }
-    .image-2 {
+    .image-2 .image-3 {
         width: 100%;
         height: 27rem;
-    }
-    .image-3 {
-        width: 100%;
-        min-height: 27rem;
     }
     .content-1 {
         min-height: 50vh;
@@ -77,18 +94,33 @@ const StyledHeadlines = styled.section`
         padding: 5rem 3.5rem;
         display: flex;
         flex-direction: column;
-        justify-content: center;
+        justify-content: space-around;
         h1 {
             margin-top: 0;
-            font-weight: 900;
+            font-weight: 600;
         }
         p {
             margin-bottom: 3.3rem;
         }
     }
-    .content-2 {
-    }
+    .content-2,
     .content-3 {
+        min-height: 42rem;
+        width: 100vw;
+        background-color: var(--white);
+        color: var(--black);
+        padding: 5rem 3.5rem;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        h2 {
+            margin-top: 0;
+            font-weight: 600;
+            margin-bottom: 3rem;
+        }
+        p {
+            margin-bottom: 3rem;
+        }
     }
     .image-wrapper {
         height: 100%;
