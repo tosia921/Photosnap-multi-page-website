@@ -41,6 +41,13 @@ module.exports = {
             },
         },
         {
+            resolve: `gatsby-source-filesystem`,
+            options: {
+                name: `storiesHomePage`,
+                path: `${__dirname}/src/assets/storiesHomePage`,
+            },
+        },
+        {
             resolve: 'gatsby-plugin-web-font-loader',
             options: {
                 google: {

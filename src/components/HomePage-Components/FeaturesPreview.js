@@ -49,7 +49,7 @@ const FeatureBox = styled.section`
     flex-direction: column;
 
     align-items: center;
-    margin-bottom: 6rem;
+    margin-bottom: 8rem;
 
     .svg {
         margin-bottom: 5.5rem;

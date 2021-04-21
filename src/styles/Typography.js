@@ -10,7 +10,6 @@ const Typography = createGlobalStyle`
     font-weight: 700;
     line-height: 4rem;
     letter-spacing: 3.3px;
-    text-transform: uppercase;
       ${media.tablet`
       font-size: 4rem;
       line-height: 4.8rem;
@@ -27,7 +26,6 @@ const Typography = createGlobalStyle`
     font-size: 1.8rem;
     font-weight: 700;
     line-height: 2.5rem;
-    text-transform: uppercase;
   }
   h4 {
     font-size: 1.2rem;
@@ -41,6 +39,10 @@ const Typography = createGlobalStyle`
     font-weight: 400;
     line-height: 2.5rem;
     color: #999999;
+  }
+  .cardAuthorAndDate {
+    color: var(--white);
+    font-size: 1.3rem;
   }
 `
 

@@ -13,7 +13,12 @@ const HeadlinesGrid = () => {
                     node {
                         id
                         childrenImageSharp {
-                            gatsbyImageData(width: 1400, placeholder: BLURRED, formats: [AUTO, WEBP, AVIF])
+                            gatsbyImageData(
+                                width: 1400
+                                quality: 100
+                                placeholder: BLURRED
+                                formats: [AUTO, WEBP, AVIF]
+                            )
                         }
                     }
                 }

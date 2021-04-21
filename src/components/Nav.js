@@ -9,7 +9,10 @@ const Nav = () => (
             <Link to="/">
                 <Logo />
             </Link>
-            <p>burger</p>
+            <div className="burger-menu">
+                <div />
+                <div />
+            </div>
         </nav>
     </StyledHeader>
 )
