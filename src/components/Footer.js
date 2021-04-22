@@ -21,7 +21,7 @@ const Footer = () => (
         </div>
         <div className="footer-nav">
             <Link to="/">HOME</Link>
-            <Link to="/">STORIES</Link>
+            <Link to="/stories">STORIES</Link>
             <Link to="/">FEAURES</Link>
             <Link to="/">PRICING</Link>
         </div>
