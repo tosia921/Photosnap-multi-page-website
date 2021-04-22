@@ -22,7 +22,7 @@ const Footer = () => (
         <div className="footer-nav">
             <Link to="/">HOME</Link>
             <Link to="/stories">STORIES</Link>
-            <Link to="/">FEAURES</Link>
+            <Link to="/features">FEAURES</Link>
             <Link to="/">PRICING</Link>
         </div>
         <ButtonArrow secondary>GET AN INVITE</ButtonArrow>

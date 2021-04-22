@@ -15,6 +15,13 @@ module.exports = {
         {
             resolve: `gatsby-source-filesystem`,
             options: {
+                name: `featuresSVG`,
+                path: `${__dirname}/src/assets/featuresSVG`,
+            },
+        },
+        {
+            resolve: `gatsby-source-filesystem`,
+            options: {
                 name: `home`,
                 path: `${__dirname}/src/assets/home`,
             },

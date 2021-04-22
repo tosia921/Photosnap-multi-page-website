@@ -1,9 +1,9 @@
 import React from 'react'
 import styled from 'styled-components'
 // svg's
-import Responsive from '../../assets/features/responsive.svg'
-import NoLimit from '../../assets/features/no-limit.svg'
-import Embed from '../../assets/features/embed.svg'
+import Responsive from '../../assets/featuresSVG/responsive.svg'
+import NoLimit from '../../assets/featuresSVG/no-limit.svg'
+import Embed from '../../assets/featuresSVG/embed.svg'
 
 const FeaturesPreview = () => (
     <FeaturesContainer>

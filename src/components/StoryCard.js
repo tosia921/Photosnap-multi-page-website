@@ -3,23 +3,20 @@ import styled from 'styled-components'
 import { GatsbyImage } from 'gatsby-plugin-image'
 import ButtonArrow from './ButtonArrow'
 
-const StoryCard = ({ title, author, date, image }) => {
-    console.log(image)
-    return (
-        <Card>
-            <GatsbyImage image={image} className="image-background" alt="abc" />
-            <div className="content">
-                <p className="cardAuthorAndDate">{date}</p>
-                <h2>{title}</h2>
-                <p className="cardAuthorAndDate">by {author}</p>
-                <div className="line-throught" />
-                <ButtonArrow secondary className="card-button">
-                    READ STORY
-                </ButtonArrow>
-            </div>
-        </Card>
-    )
-}
+const StoryCard = ({ title, author, date, image }) => (
+    <Card>
+        <GatsbyImage image={image} className="image-background" alt="abc" />
+        <div className="content">
+            <p className="cardAuthorAndDate">{date}</p>
+            <h2>{title}</h2>
+            <p className="cardAuthorAndDate">by {author}</p>
+            <div className="line-throught" />
+            <ButtonArrow secondary className="card-button">
+                READ STORY
+            </ButtonArrow>
+        </div>
+    </Card>
+)
 
 export default StoryCard
 
