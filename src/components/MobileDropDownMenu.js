@@ -2,6 +2,7 @@ import React from 'react'
 import styled from 'styled-components'
 import { Link } from 'gatsby'
 import { motion, AnimatePresence } from 'framer-motion'
+import ButtonRectangle from './ButtonRectangle'
 
 const backdrop = {
     visible: { opacity: 1 },
@@ -18,46 +19,30 @@ const DropDownAnimation = {
         transition: { duration: 1 },
     },
 }
-const LinksAnimation = {
-    hidden: { opacity: 0, y: -30 },
-    visible: {
-        opacity: 1,
-        y: 0,
-        transition: { delay: 0.3, duration: 1 },
-    },
-    exit: {
-        y: -30,
-        opacity: 0,
-        transition: { duration: 0.3 },
-    },
-}
 
-const MobileDropDownMenu = ({ burgerMenu, setBurgerMenu }) => {
-    const a = 3
-    return (
-        <AnimatePresence exitBeforeEnter>
-            {burgerMenu && (
-                <Backdrop variants={backdrop} initial="hidden" animate="visible">
-                    <DropDownMenu variants={DropDownAnimation} initial="hidden" animate="visible" exit="exit">
-                        <MobileMenuLinks variants={LinksAnimation} initial="hidden" animate="visible" exit="exit">
-                            <Link to="/stories" onClick={() => setBurgerMenu(false)}>
-                                STORIES
-                            </Link>
-                            <Link to="/features" onClick={() => setBurgerMenu(false)}>
-                                FEATURES
-                            </Link>
-                            <Link to="/pricing" onClick={() => setBurgerMenu(false)}>
-                                PRICING
-                            </Link>
-                        </MobileMenuLinks>
-                        <div className="line-throught" />
-                        <button type="button">button</button>
-                    </DropDownMenu>
-                </Backdrop>
-            )}
-        </AnimatePresence>
-    )
-}
+const MobileDropDownMenu = ({ burgerMenu, setBurgerMenu }) => (
+    <AnimatePresence exitBeforeEnter>
+        {burgerMenu && (
+            <Backdrop variants={backdrop} initial="hidden" animate="visible">
+                <DropDownMenu variants={DropDownAnimation} initial="hidden" animate="visible" exit="exit">
+                    <MobileMenuLinks>
+                        <Link to="/stories" onClick={() => setBurgerMenu(false)}>
+                            STORIES
+                        </Link>
+                        <Link to="/features" onClick={() => setBurgerMenu(false)}>
+                            FEATURES
+                        </Link>
+                        <Link to="/pricing" onClick={() => setBurgerMenu(false)}>
+                            PRICING
+                        </Link>
+                    </MobileMenuLinks>
+                    <div className="line-throught" />
+                    <ButtonRectangle className="dropdown-menu-button">GET AN INVITE</ButtonRectangle>
+                </DropDownMenu>
+            </Backdrop>
+        )}
+    </AnimatePresence>
+)
 
 export default MobileDropDownMenu
 
@@ -81,6 +66,10 @@ const DropDownMenu = styled(motion.div)`
         border-radius: 1px;
         background-color: #979797;
     }
+    .dropdown-menu-button {
+        font-size: 1.5rem;
+        width: 80%;
+    }
 `
 const Backdrop = styled(motion.div)`
     position: fixed;
@@ -94,7 +83,7 @@ const Backdrop = styled(motion.div)`
         display: none;
     }
 `
-const MobileMenuLinks = styled(motion.div)`
+const MobileMenuLinks = styled.div`
     height: fit-content;
     width: 100%;
     display: flex;

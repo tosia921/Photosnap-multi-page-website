@@ -7,12 +7,11 @@ import MobileDropDownMenu from './MobileDropDownMenu'
 
 const Nav = () => {
     const [burgerMenu, setBurgerMenu] = useState(false)
-    console.log(burgerMenu)
     return (
         <>
             <StyledHeader>
                 <nav>
-                    <Link to="/">
+                    <Link to="/" onClick={() => setBurgerMenu(false)}>
                         <Logo />
                     </Link>
                     <BurgerButton burgerMenu={burgerMenu} setBurgerMenu={setBurgerMenu} />

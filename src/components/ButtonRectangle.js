@@ -21,6 +21,7 @@ const StyledButton = styled.button`
     color: ${props => (props.secondary ? `var(--black)` : `var(--white)`)};
     background-color: ${props => (props.secondary ? `var(--white)` : `var(--black)`)};
     transition: all 0.2s ease-in-out;
+    cursor: pointer;
 
     &:hover {
         background-color: var(--gray);
