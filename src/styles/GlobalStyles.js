@@ -6,6 +6,7 @@ const GlobalStyles = createGlobalStyle`
     --black: #000000;
     --gray: #DFDFDF;
     --white: #FFFFFF;
+    --primaryCardBackground: #F5F5F5;
   }
 
   * { 

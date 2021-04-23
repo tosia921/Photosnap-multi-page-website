@@ -22,6 +22,7 @@ const features = ({ data }) => {
                     <GatsbyImage className="image-wrapper" image={HeroImg} alt="Man with Camera." />
                 </div>
                 <div className="content-top">
+                    <GradientLine />
                     <h1>FEATURES</h1>
                     <p>
                         We make sure all of our features are designed to be loved by every aspiring and even
@@ -91,6 +92,7 @@ const features = ({ data }) => {
                 </FeatureBox>
             </FeaturesContainer>
             <Beta>
+                <GradientLine />
                 <GatsbyImage className="image-wrapper" image={bgBeta} alt="Sand" />
                 <div className="content">
                     <h2>
@@ -98,7 +100,7 @@ const features = ({ data }) => {
                         Get your invite <br />
                         today!
                     </h2>
-                    <ButtonArrow secondary />
+                    <ButtonArrow secondary>GET AN INVITE</ButtonArrow>
                 </div>
             </Beta>
         </SectionFeatures>
@@ -128,7 +130,7 @@ const SectionFeatures = styled.section`
         height: 29rem;
     }
     .content-top {
-        min-height: 50vh;
+        min-height: calc(100vh - 29rem - 7.2rem);
         width: 100vw;
         background-color: var(--black);
         color: var(--white);
@@ -136,17 +138,13 @@ const SectionFeatures = styled.section`
         display: flex;
         flex-direction: column;
         justify-content: space-around;
+        position: relative;
         h1 {
             margin-top: 7rem;
             font-weight: 600;
         }
         p {
             margin-bottom: 7rem;
-        }
-    }
-    .content {
-        h2 {
-            text-transform: uppercase;
         }
     }
     .image-wrapper {
@@ -180,4 +178,42 @@ const FeatureBox = styled.section`
 const Beta = styled.div`
     width: 100vw;
     height: 29rem;
+    position: relative;
+    .content {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100vw;
+        height: 29rem;
+        width: 100vw;
+        color: var(--white);
+        padding: 5rem 3.5rem;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
+        h2 {
+            margin-top: 0;
+            font-weight: 600;
+            text-transform: uppercase;
+        }
+    }
+    .image-wrapper {
+        height: 100%;
+        width: 100%;
+    }
+    .gradient-position {
+        position: absolute;
+        top: 0.6rem;
+        left: 5rem;
+    }
+`
+
+const GradientLine = styled.div`
+    width: 12.8rem;
+    height: 0.6rem;
+    background: var(--MainAccentGradient);
+    position: absolute;
+    top: 0;
+    left: 3.5rem;
+    z-index: 500;
 `

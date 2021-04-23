@@ -8,7 +8,7 @@ const HeadlinesGrid = () => {
     // Quering for images from file
     const data = useStaticQuery(graphql`
         query MyQuery {
-            allFile(filter: { sourceInstanceName: { eq: "home" } }) {
+            allFile(filter: { sourceInstanceName: { eq: "home" } }, sort: { fields: name, order: ASC }) {
                 edges {
                     node {
                         id
@@ -36,6 +36,7 @@ const HeadlinesGrid = () => {
                 <GatsbyImage className="image-wrapper" image={image1} alt="numero uno" />
             </div>
             <div className="content-1">
+                <GradientLine />
                 <h1>
                     CREATE AND <br />
                     SHARE YOUR <br />
@@ -100,6 +101,7 @@ const StyledHeadlines = styled.section`
         display: flex;
         flex-direction: column;
         justify-content: space-around;
+        position: relative;
         h1 {
             margin-top: 0;
             font-weight: 600;
@@ -131,4 +133,13 @@ const StyledHeadlines = styled.section`
         height: 100%;
         width: 100%;
     }
+`
+const GradientLine = styled.div`
+    width: 12.8rem;
+    height: 0.6rem;
+    background: var(--MainAccentGradient);
+    position: absolute;
+    top: 0;
+    left: 3.5rem;
+    z-index: 500;
 `
