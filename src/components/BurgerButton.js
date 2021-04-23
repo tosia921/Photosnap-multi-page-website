@@ -1,16 +1,13 @@
 import React from 'react'
 import styled from 'styled-components'
 
-const BurgerMenu = ({ burgerMenu, setBurgerMenu }) => {
-    console.log(burgerMenu)
-    return (
-        <Burger burgerMenu={burgerMenu} onClick={() => setBurgerMenu(!burgerMenu)}>
-            <div className="burger" />
-        </Burger>
-    )
-}
+const BurgerButton = ({ burgerMenu, setBurgerMenu }) => (
+    <Burger burgerMenu={burgerMenu} onClick={() => setBurgerMenu(!burgerMenu)}>
+        <div className="burger" />
+    </Burger>
+)
 
-export default BurgerMenu
+export default BurgerButton
 
 const Burger = styled.button`
     outline: none;
