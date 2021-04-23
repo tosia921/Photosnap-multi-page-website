@@ -1,21 +1,22 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { Link } from 'gatsby'
 import styled from 'styled-components'
 import Logo from '../assets/shared/logo.svg'
+import BurgerMenu from './BurgerMenu'
 
-const Nav = () => (
-    <StyledHeader>
-        <nav>
-            <Link to="/">
-                <Logo />
-            </Link>
-            <div className="burger-menu">
-                <div />
-                <div />
-            </div>
-        </nav>
-    </StyledHeader>
-)
+const Nav = () => {
+    const [burgerMenu, setBurgerMenu] = useState(false)
+    return (
+        <StyledHeader>
+            <nav>
+                <Link to="/">
+                    <Logo />
+                </Link>
+                <BurgerMenu burgerMenu={burgerMenu} setBurgerMenu={setBurgerMenu} />
+            </nav>
+        </StyledHeader>
+    )
+}
 
 export default Nav
 
