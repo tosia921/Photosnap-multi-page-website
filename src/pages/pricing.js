@@ -2,6 +2,7 @@ import { graphql } from 'gatsby'
 import { GatsbyImage, getImage } from 'gatsby-plugin-image'
 import React, { useState } from 'react'
 import styled from 'styled-components'
+import FeaturesListItem from '../components/FeaturesListItem'
 import PriceCard from '../components/PriceCard'
 
 const Pricing = ({ data }) => {
@@ -56,6 +57,20 @@ const Pricing = ({ data }) => {
                     paymentOption={paymentOption}
                 />
             </PriceBoxes>
+            <Features>
+                <h4>THE FEATURES</h4>
+                <div className="thick-line-throught" />
+                <ul>
+                    <FeaturesListItem feature="UNLIMITED STORY POSTING" basic pro business />
+                    <FeaturesListItem feature="UNLIMITED PHOTO UPLOAD" basic pro business />
+                    <FeaturesListItem feature="EMBEDDING CUSTOM CONTENT" pro business />
+                    <FeaturesListItem feature="CUSTOMIZE METADATA" pro business />
+                    <FeaturesListItem feature="ADVANCED METRICS" business />
+                    <FeaturesListItem feature="PHOTO DOWNLOADS" business />
+                    <FeaturesListItem feature="SEARCH ENGINE INDEXING" business />
+                    <FeaturesListItem feature="CUSTOM ANALYTICS" business />
+                </ul>
+            </Features>
         </SectionFeatures>
     )
 }
@@ -106,4 +121,22 @@ const GradientLine = styled.div`
 `
 const PriceBoxes = styled.section`
     padding: 5rem 3.5rem;
+`
+const Features = styled.div`
+    width: 100%;
+    height: fit-content;
+    padding: 0 3.5rem;
+    padding-bottom: 5rem;
+
+    h4 {
+        margin-bottom: 2.5rem;
+    }
+
+    .thick-line-throught {
+        width: 100%;
+        height: 1.5px;
+        border-radius: 1px;
+        background-color: var(--black);
+        margin-bottom: 2rem;
+    }
 `
