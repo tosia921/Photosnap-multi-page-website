@@ -10,6 +10,7 @@ import DragDrop from '../assets/featuresSVG/drag-drop.svg'
 import BoostExposure from '../assets/featuresSVG/boost-exposure.svg'
 import CustomDomain from '../assets/featuresSVG/custom-domain.svg'
 import ButtonArrow from '../components/ButtonArrow'
+import Beta from '../components/Beta'
 
 const features = ({ data }) => {
     // Assigning each image from the array to its own variable
@@ -91,18 +92,7 @@ const features = ({ data }) => {
                     </p>
                 </FeatureBox>
             </FeaturesContainer>
-            <Beta>
-                <GradientLine />
-                <GatsbyImage className="image-wrapper" image={bgBeta} alt="Sand" />
-                <div className="content">
-                    <h2>
-                        We’re in beta. <br />
-                        Get your invite <br />
-                        today!
-                    </h2>
-                    <ButtonArrow secondary>GET AN INVITE</ButtonArrow>
-                </div>
-            </Beta>
+            <Beta />
         </SectionFeatures>
     )
 }
@@ -174,40 +164,6 @@ const FeatureBox = styled.section`
         text-align: center;
     }
 `
-
-const Beta = styled.div`
-    width: 100vw;
-    height: 29rem;
-    position: relative;
-    .content {
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 100vw;
-        height: 29rem;
-        width: 100vw;
-        color: var(--white);
-        padding: 5rem 3.5rem;
-        display: flex;
-        flex-direction: column;
-        justify-content: space-around;
-        h2 {
-            margin-top: 0;
-            font-weight: 600;
-            text-transform: uppercase;
-        }
-    }
-    .image-wrapper {
-        height: 100%;
-        width: 100%;
-    }
-    .gradient-position {
-        position: absolute;
-        top: 0.6rem;
-        left: 5rem;
-    }
-`
-
 const GradientLine = styled.div`
     width: 12.8rem;
     height: 0.6rem;

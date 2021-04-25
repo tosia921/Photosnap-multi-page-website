@@ -1,9 +1,10 @@
-import { graphql } from 'gatsby'
 import { GatsbyImage, getImage } from 'gatsby-plugin-image'
 import React, { useState } from 'react'
 import styled from 'styled-components'
+import Beta from '../components/Beta'
 import FeaturesListItem from '../components/FeaturesListItem'
 import PriceCard from '../components/PriceCard'
+import CheckboxButton from '../components/CheckboxButton'
 
 const Pricing = ({ data }) => {
     // Payment option state
@@ -14,7 +15,7 @@ const Pricing = ({ data }) => {
     const HeroImg = getImage(data.allFile.edges[1].node.childrenImageSharp[0])
 
     return (
-        <SectionFeatures>
+        <SectionFeatures paymentOption={paymentOption}>
             <div className="section-top">
                 <div className="image-top">
                     <GatsbyImage className="image-wrapper" image={HeroImg} alt="Women with Camera, sunset." />
@@ -29,9 +30,9 @@ const Pricing = ({ data }) => {
                 </div>
             </div>
             <div className="price-option">
-                <button type="button" onClick={() => setpaymentOption(!paymentOption)}>
-                    option to be styled
-                </button>
+                <p className="monthly-yearly monthly">Monthly</p>
+                <CheckboxButton onClick={() => setpaymentOption(!paymentOption)} />
+                <p className="monthly-yearly yearly">Yearly</p>
             </div>
             <PriceBoxes>
                 <PriceCard
@@ -71,6 +72,7 @@ const Pricing = ({ data }) => {
                     <FeaturesListItem feature="CUSTOM ANALYTICS" business />
                 </ul>
             </Features>
+            <Beta />
         </SectionFeatures>
     )
 }
@@ -98,6 +100,26 @@ const SectionFeatures = styled.section`
         }
         p {
             margin-bottom: 7rem;
+        }
+    }
+    .price-option {
+        margin-top: 4.5rem;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        input {
+            margin: 0 2rem;
+        }
+        .monthly-yearly {
+            font-size: 1.8rem;
+            line-height: 2.5rem;
+            font-weight: 700;
+        }
+        .monthly {
+            color: ${props => (props.paymentOption === true ? `var(--black)` : `#999999`)};
+        }
+        .yearly {
+            color: ${props => (props.paymentOption === false ? `var(--black)` : `#999999`)};
         }
     }
     .content {
