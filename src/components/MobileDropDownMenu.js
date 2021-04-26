@@ -26,13 +26,25 @@ const MobileDropDownMenu = ({ burgerMenu, setBurgerMenu }) => (
             <Backdrop variants={backdrop} initial="hidden" animate="visible">
                 <DropDownMenu variants={DropDownAnimation} initial="hidden" animate="visible" exit="exit">
                     <MobileMenuLinks>
-                        <Link to="/stories" onClick={() => setBurgerMenu(false)}>
+                        <Link
+                            to="/stories"
+                            onClick={() => setBurgerMenu(false)}
+                            activeStyle={{ color: 'var(--LinkActiveHeader)' }}
+                        >
                             STORIES
                         </Link>
-                        <Link to="/features" onClick={() => setBurgerMenu(false)}>
+                        <Link
+                            to="/features"
+                            activeStyle={{ color: 'var(--LinkActiveHeader)' }}
+                            onClick={() => setBurgerMenu(false)}
+                        >
                             FEATURES
                         </Link>
-                        <Link to="/pricing" onClick={() => setBurgerMenu(false)}>
+                        <Link
+                            to="/pricing"
+                            activeStyle={{ color: 'var(--LinkActiveHeader)' }}
+                            onClick={() => setBurgerMenu(false)}
+                        >
                             PRICING
                         </Link>
                     </MobileMenuLinks>

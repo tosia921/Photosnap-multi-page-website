@@ -20,10 +20,18 @@ const Footer = () => (
             <InstagramSVG />
         </div>
         <div className="footer-nav">
-            <Link to="/">HOME</Link>
-            <Link to="/stories">STORIES</Link>
-            <Link to="/features">FEAURES</Link>
-            <Link to="/pricing">PRICING</Link>
+            <Link to="/" activeStyle={{ color: 'var(--LinkActiveFooter)' }}>
+                HOME
+            </Link>
+            <Link to="/stories" activeStyle={{ color: 'var(--LinkActiveFooter)' }}>
+                STORIES
+            </Link>
+            <Link to="/features" activeStyle={{ color: 'var(--LinkActiveFooter)' }}>
+                FEAURES
+            </Link>
+            <Link to="/pricing" activeStyle={{ color: 'var(--LinkActiveFooter)' }}>
+                PRICING
+            </Link>
         </div>
         <ButtonArrow secondary>GET AN INVITE</ButtonArrow>
         <p>Copyright 2019. All Rights Reserved</p>

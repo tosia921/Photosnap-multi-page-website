@@ -7,6 +7,8 @@ const GlobalStyles = createGlobalStyle`
     --gray: #DFDFDF;
     --white: #FFFFFF;
     --primaryCardBackground: #F5F5F5;
+    --LinkActiveFooter: #4C4C4C;
+    --LinkActiveHeader: #E8E8E8;
   }
 
   * { 

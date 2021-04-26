@@ -5,6 +5,7 @@ import ButtonArrow from './ButtonArrow'
 
 const StoryCard = ({ title, author, date, image }) => (
     <Card>
+        <GradientLine className="gradient-line" />
         <GatsbyImage image={image} className="image-background" alt="abc" />
         <div className="content">
             <p className="cardAuthorAndDate">{date}</p>
@@ -25,6 +26,14 @@ const Card = styled.article`
     width: 100%;
     position: relative;
     background-color: #000000;
+    transition: transform 0.3s ease-in;
+
+    &:hover {
+        transform: translateY(-3rem);
+        .gradient-line {
+            display: block;
+        }
+    }
 
     .image-background {
         position: absolute;
@@ -69,4 +78,15 @@ const Card = styled.article`
             }
         }
     }
+`
+
+const GradientLine = styled.div`
+    width: 100%;
+    height: 0.6rem;
+    background: var(--MainAccentGradient);
+    position: absolute;
+    bottom: -0.6rem;
+    left: 0;
+    z-index: 500;
+    display: none;
 `
