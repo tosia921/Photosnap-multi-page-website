@@ -3,6 +3,7 @@ import { useStaticQuery, graphql } from 'gatsby'
 import { GatsbyImage, getImage } from 'gatsby-plugin-image'
 import styled from 'styled-components'
 import ButtonArrow from '../ButtonArrow'
+import media from '../../styles/MediaQueries'
 
 const HeadlinesGrid = () => {
     // Quering for images from file
@@ -84,9 +85,41 @@ const HeadlinesGrid = () => {
 export default HeadlinesGrid
 
 const StyledHeadlines = styled.section`
+    height: fit-content;
+    width: 100vw;
+
+    ${media.tablet`
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      grid-template-rows: repeat(3, 65rem);
+      grid-template-areas:
+        "cont-1 cont-1 img-1"
+        "img-2 cont-2 cont-2"
+        "cont-3 cont-3 img-3";
+    `}
+    ${media.desktop`
+      display: grid;
+      grid-template-columns: repeat(7, 1fr);
+      grid-template-rows: 65rem 65rem 60rem;
+      grid-template-areas:
+        "cont-1 cont-1 cont-1 img-1 img-1 img-1 img-1"
+        "img-2 img-2 img-2 img-2 cont-2 cont-2 cont-2"
+        "cont-3 cont-3 cont-3 img-3 img-3 img-3 img-3";
+    `}
+
     .image-1 {
         height: calc(100vh - 50vh - 7.2rem);
-        width: 100vw;
+        width: 100%;
+        grid-area: img-1;
+        ${media.tablet`
+            height: 100%;
+        `}
+    }
+    .image-2 {
+        grid-area: img-2;
+    }
+    .image-3 {
+        grid-area: img-3;
     }
     .image-2 .image-3 {
         width: 100%;
@@ -94,7 +127,7 @@ const StyledHeadlines = styled.section`
     }
     .content-1 {
         min-height: 50vh;
-        width: 100vw;
+        width: 100%;
         background-color: var(--black);
         color: var(--white);
         padding: 5rem 3.5rem;
@@ -102,18 +135,37 @@ const StyledHeadlines = styled.section`
         flex-direction: column;
         justify-content: space-around;
         position: relative;
+        grid-area: cont-1;
+        ${media.tablet`
+            justify-content: center;
+            padding: 5rem calc((40vw - 200px) / 2);
+        `}
+        ${media.desktop`
+            justify-content: center;
+            padding: 5rem calc((40vw - 350px) / 2);
+        `}
+        ${media.desktopLarge`
+            padding: 5rem calc((40vw - 350px) / 2);
+        `}
+
         h1 {
             margin-top: 0;
             font-weight: 600;
+            ${media.tablet`
+                margin-bottom: 5rem;
+            `}
         }
         p {
             margin-bottom: 3.3rem;
+            ${media.tablet`
+                margin-bottom: 10rem;
+            `}
         }
     }
     .content-2,
     .content-3 {
         min-height: 42rem;
-        width: 100vw;
+        width: 100%;
         background-color: var(--white);
         color: var(--black);
         padding: 5rem 3.5rem;
@@ -128,6 +180,23 @@ const StyledHeadlines = styled.section`
         p {
             margin-bottom: 3rem;
         }
+        ${media.tablet`
+            justify-content: center;
+            padding: 5rem calc((40vw - 200px) / 2);
+        `}
+        ${media.desktop`
+            justify-content: center;
+            padding: 5rem calc((40vw - 350px) / 2);
+        `}
+        ${media.desktopLarge`
+            padding: 5rem calc((40vw - 350px) / 2);
+        `}
+    }
+    .content-2 {
+        grid-area: cont-2;
+    }
+    .content-3 {
+        grid-area: cont-3;
     }
     .image-wrapper {
         height: 100%;
@@ -142,4 +211,11 @@ const GradientLine = styled.div`
     top: 0;
     left: 3.5rem;
     z-index: 500;
+    ${media.tablet`
+        height: 50%;
+        width: 0.6rem;
+        top: 50%;
+        left: 0;
+        transform: translateY(-50%);
+    `}
 `

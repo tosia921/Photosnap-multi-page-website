@@ -3,6 +3,8 @@ import styled from 'styled-components'
 import { useStaticQuery, graphql } from 'gatsby'
 import { getImage } from 'gatsby-plugin-image'
 import StoryCard from '../StoryCard'
+// Media queries
+import media from '../../styles/MediaQueries'
 
 const StoryCardsPreview = () => {
     // Quering for images from file
@@ -40,4 +42,20 @@ export default StoryCardsPreview
 
 const CardsPreview = styled.section`
     margin-bottom: 5rem;
+
+    ${media.tablet`
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        grid-template-rows: 50rem 50rem;
+    `}
+    ${media.desktop`
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        grid-template-rows: 65rem 65rem;
+    `}
+    ${media.desktopLarge`
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        grid-template-rows: 50rem;
+    `}
 `

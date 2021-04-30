@@ -4,6 +4,8 @@ import styled from 'styled-components'
 import Responsive from '../../assets/featuresSVG/responsive.svg'
 import NoLimit from '../../assets/featuresSVG/no-limit.svg'
 import Embed from '../../assets/featuresSVG/embed.svg'
+// Media Queries
+import media from '../../styles/MediaQueries'
 
 const FeaturesPreview = () => (
     <FeaturesContainer>
@@ -18,7 +20,7 @@ const FeaturesPreview = () => (
             </p>
         </FeatureBox>
         <FeatureBox>
-            <div className="svg">
+            <div className="svg svg-no-limit">
                 <NoLimit />
             </div>
             <h3>No Photo Upload Limit</h3>
@@ -41,7 +43,16 @@ export default FeaturesPreview
 
 const FeaturesContainer = styled.section`
     width: 100vw;
-    padding: 4rem 3.5rem;
+    padding: 4rem calc((100vw - 350px) / 2);
+    ${media.tablet`
+        padding: 4rem calc((100vw - 450px) / 2);
+    `}
+    ${media.desktopLarge`
+        padding: 4rem 0; 
+        display: flex;
+        align-items: center;
+        justify-content: space-around;
+    `}
 `
 const FeatureBox = styled.section`
     height: 23.5rem;
@@ -54,6 +65,18 @@ const FeatureBox = styled.section`
     .svg {
         margin-bottom: 5.5rem;
     }
+    ${media.desktopLarge`
+        width: 35rem;
+    `}
+    ${media.desktopLarge`
+        .svg-no-limit {
+            padding-top: 1.5rem;
+            padding-bottom: 2rem;
+            
+
+        }
+    `}
+
     h3 {
         margin-bottom: 3rem;
     }

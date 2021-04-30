@@ -9,12 +9,12 @@ import Embed from '../assets/featuresSVG/embed.svg'
 import DragDrop from '../assets/featuresSVG/drag-drop.svg'
 import BoostExposure from '../assets/featuresSVG/boost-exposure.svg'
 import CustomDomain from '../assets/featuresSVG/custom-domain.svg'
-import ButtonArrow from '../components/ButtonArrow'
 import Beta from '../components/Beta'
+// Media Queries
+import media from '../styles/MediaQueries'
 
 const features = ({ data }) => {
-    // Assigning each image from the array to its own variable
-    const bgBeta = getImage(data.allFile.edges[0].node.childrenImageSharp[0])
+    // Assigning image from the array to its own variable
     const HeroImg = getImage(data.allFile.edges[1].node.childrenImageSharp[0])
     return (
         <SectionFeatures>
@@ -23,12 +23,14 @@ const features = ({ data }) => {
                     <GatsbyImage className="image-wrapper" image={HeroImg} alt="Man with Camera." />
                 </div>
                 <div className="content-top">
-                    <GradientLine />
-                    <h1>FEATURES</h1>
-                    <p>
-                        We make sure all of our features are designed to be loved by every aspiring and even
-                        professional photograpers who wanted to share their stories.
-                    </p>
+                    <div className="content-top-text">
+                        <GradientLine />
+                        <h1>FEATURES</h1>
+                        <p>
+                            We make sure all of our features are designed to be loved by every aspiring and even
+                            professional photograpers who wanted to share their stories.
+                        </p>
+                    </div>
                 </div>
             </div>
             <FeaturesContainer>
@@ -43,7 +45,7 @@ const features = ({ data }) => {
                     </p>
                 </FeatureBox>
                 <FeatureBox>
-                    <div className="svg">
+                    <div className="svg svg-no-limit">
                         <NoLimit />
                     </div>
                     <h3>No Photo Upload Limit</h3>
@@ -115,9 +117,28 @@ export const query = graphql`
 export default features
 
 const SectionFeatures = styled.section`
+    .section-top {
+        ${media.tablet`
+            height: 49rem;
+            display: flex;
+            flex-direction: row-reverse;
+        `}
+    }
     .image-top {
         width: 100%;
         height: 29rem;
+        ${media.tablet`
+            height: 49rem;
+            width: 40%;
+        `}
+        ${media.desktop`
+            height: 55rem;
+            width: 60%;
+        `}
+        ${media.desktopLarge`
+            height: 65rem;
+            width: 70%;
+        `}
     }
     .content-top {
         min-height: calc(100vh - 29rem - 7.2rem);
@@ -129,6 +150,23 @@ const SectionFeatures = styled.section`
         flex-direction: column;
         justify-content: space-around;
         position: relative;
+        .content-top-text {
+            ${media.tablet`
+                width: 39rem;
+            `}
+        }
+        ${media.tablet`
+            min-height: 49rem;
+            width: 60%;
+        `}
+        ${media.desktop`
+            min-height: 55rem;
+            width: 40%;
+        `}
+        ${media.desktopLarge`
+            min-height: 65rem;
+            width: 30%;
+        `}
         h1 {
             margin-top: 7rem;
             font-weight: 600;
@@ -143,8 +181,29 @@ const SectionFeatures = styled.section`
     }
 `
 const FeaturesContainer = styled.section`
-    width: 100vw;
-    padding: 4rem 3.5rem;
+    width: 100%;
+    height: fit-content;
+    margin-top: 4rem;
+    padding: 0 3.5rem;
+    margin-bottom: 6rem;
+    ${media.tablet`
+        padding: 0;
+        margin-top: 5rem;
+        display: grid;
+        justify-items: center;
+        grid-template-columns: 1fr 1fr;
+        grid-template-rows: repeat(3, 24rem);
+        column-gap: 2rem;
+        row-gap: 8rem;
+    `}
+    ${media.desktop`
+        margin-top: 10rem;
+    `}
+    ${media.desktopLarge`
+        margin-top: 20rem;
+        grid-template-columns: 1fr 1fr 1fr;
+        grid-template-rows: repeat(2, 24rem);
+    `}
 `
 const FeatureBox = styled.section`
     height: 23.5rem;
@@ -153,6 +212,14 @@ const FeatureBox = styled.section`
 
     align-items: center;
     margin-bottom: 8rem;
+
+    ${media.tablet`
+        width: 35rem;
+        .svg-no-limit {
+            padding-top: 1.5rem;
+            padding-bottom: 2rem;
+        }
+    `}
 
     .svg {
         margin-bottom: 5.5rem;
@@ -172,4 +239,11 @@ const GradientLine = styled.div`
     top: 0;
     left: 3.5rem;
     z-index: 500;
+    ${media.tablet`
+        height: 50%;
+        width: 0.6rem;
+        top: 50%;
+        left: 0;
+        transform: translateY(-50%);
+    `}
 `

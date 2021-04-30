@@ -3,8 +3,8 @@ import styled from 'styled-components'
 import Arrow from '../assets/shared/arrow.svg'
 // RENDER: <ButtonArrow>text</ButtonArrow> or <ButtonArrow secondary>text</ButtonArrow>
 
-const ButtonArrow = ({ children, ...otherProps }) => (
-    <StyledButton type="button" {...otherProps}>
+const ButtonArrow = ({ children, className, ...otherProps }) => (
+    <StyledButton type="button" className={className} {...otherProps}>
         <span>{children}</span>
         <StyledArrow />
     </StyledButton>

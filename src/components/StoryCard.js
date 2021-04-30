@@ -2,6 +2,7 @@ import React from 'react'
 import styled from 'styled-components'
 import { GatsbyImage } from 'gatsby-plugin-image'
 import ButtonArrow from './ButtonArrow'
+import media from '../styles/MediaQueries'
 
 const StoryCard = ({ title, author, date, image }) => (
     <Card>
@@ -27,6 +28,15 @@ const Card = styled.article`
     position: relative;
     background-color: #000000;
     transition: transform 0.3s ease-in;
+    ${media.tablet`
+        height: 50rem;
+    `}
+    ${media.desktop`
+        height: 65rem;
+    `}
+    ${media.desktopLarge`
+        height: 50rem;
+    `}
 
     &:hover {
         transform: translateY(-3rem);

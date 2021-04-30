@@ -4,6 +4,8 @@ import { GatsbyImage, getImage } from 'gatsby-plugin-image'
 import styled from 'styled-components'
 import ButtonArrow from '../components/ButtonArrow'
 import StoryCard from '../components/StoryCard'
+// Media Queries
+import media from '../styles/MediaQueries'
 
 const stories = ({ data }) => {
     // Assigning each image from the array to its own variable
@@ -110,6 +112,11 @@ const StyledSection = styled.section`
     .image-top {
         width: 100%;
         height: 32rem;
+
+        ${media.tablet`
+            height: calc(100vh - 7.2rem);
+            position: relative;
+        `}
     }
     .image-wrapper {
         height: 100%;
@@ -124,6 +131,22 @@ const StyledSection = styled.section`
         display: flex;
         flex-direction: column;
         justify-content: space-around;
+        ${media.tablet`
+            padding: 0 0;
+            padding-left: 4rem;
+            position: absolute;
+            top: 50%;
+            left: 0;
+            background: transparent;
+            width: 50%;
+            transform: translateY(-44%);
+        `}
+        ${media.desktop`
+            width: 40%;
+        `}
+        ${media.desktopLarge`
+            width: 30%;
+        `}
         h1 {
             margin-top: 0;
             font-weight: 600;
@@ -142,6 +165,23 @@ const StyledSection = styled.section`
                 font-weight: 400;
             }
         }
+    }
+    .stories-grid {
+        ${media.tablet`
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        grid-template-rows: 50rem 50rem;
+    `}
+        ${media.desktop`
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        grid-template-rows: 65rem 65rem;
+    `}
+        ${media.desktopLarge`
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        grid-template-rows: 50rem;
+    `}
     }
 `
 

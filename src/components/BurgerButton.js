@@ -1,5 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
+// Media Queries
+import media from '../styles/MediaQueries'
 
 const BurgerButton = ({ burgerMenu, setBurgerMenu }) => (
     <Burger burgerMenu={burgerMenu} onClick={() => setBurgerMenu(!burgerMenu)}>
@@ -16,6 +18,9 @@ const Burger = styled.button`
     border: 0px;
     padding: 0px;
     background: transparent;
+    ${media.tablet`
+        display: none;
+    `}
     .burger {
         display: flex;
         outline: none;

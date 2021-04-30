@@ -3,6 +3,8 @@ import styled from 'styled-components'
 import { GatsbyImage, getImage } from 'gatsby-plugin-image'
 import { useStaticQuery, graphql } from 'gatsby'
 import ButtonArrow from './ButtonArrow'
+// Media Queries
+import media from '../styles/MediaQueries'
 
 const Beta = () => {
     // Quering for images from file
@@ -47,16 +49,15 @@ const Beta = () => {
 export default Beta
 
 const BetaBackground = styled.div`
-    width: 100vw;
+    width: 100%;
     height: 29rem;
     position: relative;
     .content {
         position: absolute;
         top: 0;
         left: 0;
-        width: 100vw;
+        width: 100%;
         height: 29rem;
-        width: 100vw;
         color: var(--white);
         padding: 5rem 3.5rem;
         display: flex;
@@ -67,6 +68,17 @@ const BetaBackground = styled.div`
             font-weight: 600;
             text-transform: uppercase;
         }
+        ${media.tablet`
+            flex-direction: row;
+            align-items: center;
+            padding-right: 8rem;
+            h2 {
+                flex-grow: 1;
+            }
+        `}
+        ${media.desktopLarge`
+            padding: 5rem 8rem 5rem 16rem;
+        `}
     }
     .image-wrapper {
         height: 100%;
@@ -87,4 +99,10 @@ const GradientLine = styled.div`
     top: 0;
     left: 3.5rem;
     z-index: 500;
+    ${media.tablet`
+        height: 100%;
+        width: 0.6rem;
+        top: 0;
+        left: 0;
+    `}
 `

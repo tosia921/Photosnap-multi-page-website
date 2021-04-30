@@ -3,8 +3,8 @@ import styled from 'styled-components'
 
 // RENDER: <ButtonRectangle>text</ButtonRectangle> or <ButtonRectangle secondary>text</ButtonRectangle>
 
-const ButtonRectangle = ({ children, ...otherProps }) => (
-    <StyledButton type="button" {...otherProps}>
+const ButtonRectangle = ({ children, className, ...otherProps }) => (
+    <StyledButton type="button" className={className} {...otherProps}>
         {children}
     </StyledButton>
 )

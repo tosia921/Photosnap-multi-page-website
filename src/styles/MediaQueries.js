@@ -2,7 +2,7 @@ import { css } from 'styled-components'
 
 const sizes = {
     desktopLarge: 1400,
-    dekstop: 1024,
+    desktop: 1024,
     tablet: 768,
 }
 export default Object.keys(sizes).reduce((acc, label) => {
