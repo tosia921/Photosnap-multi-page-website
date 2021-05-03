@@ -11,12 +11,7 @@ This is my solution to the [Photosnap Website challenge on Frontend Mentor](http
 - [My process](#my-process)
   - [Built with](#built-with)
   - [What I learned](#what-i-learned)
-  - [Continued development](#continued-development)
-  - [Useful resources](#useful-resources)
 - [Author](#author)
-- [Acknowledgments](#acknowledgments)
-
-**Note: Delete this note and update the table of contents based on what sections you keep.**
 
 ## Overview
 
@@ -33,8 +28,8 @@ Users should be able to:
 
 ### Links
 
-- Solution URL: [Add solution URL here](https://your-solution-url.com)
-- Live Site URL: [Add live site URL here](https://your-live-site-url.com)
+- Solution URL: [FrontEnd Mentor Solution](https://www.frontendmentor.io/solutions/photosnap-multipage-website-solution-w4qKDKUz_)
+- Live Site URL: [PhotoSnap Live](https://modest-payne-c53e87.netlify.app/)
 
 ## My process
 
@@ -45,61 +40,102 @@ Users should be able to:
 - Flexbox
 - CSS Grid
 - Mobile-first workflow
-- [React](https://reactjs.org/) - JS library
-- [Next.js](https://nextjs.org/) - React framework
+- [React.js](https://reactjs.org/) - JS library
+- [Gatsby.js](https://www.gatsbyjs.com/) - React framework
 - [Styled Components](https://styled-components.com/) - For styles
-
-**Note: These are just examples. Delete this note and replace the list above with your own choices**
+- [Freamer Motion](https://www.framer.com/api/motion/) - For Dropdown menu Animation
 
 ### What I learned
 
-Use this section to recap over some of your major learnings while working through this project. Writing these out and providing code samples of areas you want to highlight is a great way to reinforce your own knowledge.
+- How to use Gatsby JS to generate blazing fast static websites.
 
-To see how you can add code snippets, see below:
-
-```html
-<h1>Some HTML code I'm proud of</h1>
-```
-
-```css
-.proud-of-this-css {
-  color: papayawhip;
-}
-```
+- How to query Page component's data from file's with help of Gatsby's GraphQL.
 
 ```js
-const proudOfThisFunc = () => {
-  console.log("🎉")
+export const query = graphql`
+    query FeaturesImages {
+        allFile(filter: { sourceInstanceName: { eq: "features" } }) {
+            edges {
+                node {
+                    id
+                    childrenImageSharp {
+                        gatsbyImageData(width: 2000, placeholder: BLURRED, quality: 100, formats: [AUTO, WEBP, AVIF])
+                    }
+                }
+            }
+        }
+    }
+`
 }
 ```
 
-If you want more help with writing markdown, we'd recommend checking out [The Markdown Guide](https://www.markdownguide.org/) to learn more.
+- How to query data from non page components with help of Gatsby useStaticQuery hook:
 
-**Note: Delete this note and the content within this section and replace with your own learnings.**
+```js
+// Quering for images from file
+const data = useStaticQuery(graphql`
+  query MyQuery {
+    allFile(
+      filter: { sourceInstanceName: { eq: "home" } }
+      sort: { fields: name, order: ASC }
+    ) {
+      edges {
+        node {
+          id
+          childrenImageSharp {
+            gatsbyImageData(
+              width: 1400
+              quality: 100
+              placeholder: BLURRED
+              formats: [AUTO, WEBP, AVIF]
+            )
+          }
+        }
+      }
+    }
+  }
+`)
+```
 
-### Continued development
+- How to structure Gatsby Layout Component to apply on every Page
 
-Use this section to outline areas that you want to continue focusing on in future projects. These could be concepts you're still not completely comfortable with or techniques you found useful that you want to refine and perfect.
+```js
+const Layout = ({ children }) => (
+  <>
+    <GlobalStyles />
+    <Typography />
+    <PageWrapper>
+      <Nav />
+      <main>{children}</main>
+      <Footer />
+    </PageWrapper>
+  </>
+)
+```
 
-**Note: Delete this note and the content within this section and replace with your own plans for continued development.**
+and then apply it to every page automaticly from gatsby-browser.js file
 
-### Useful resources
+```js
+import React from "react"
+import Layout from "./src/components/Layout"
 
-- [Example resource 1](https://www.example.com) - This helped me for XYZ reason. I really liked this pattern and will use it going forward.
-- [Example resource 2](https://www.example.com) - This is an amazing article which helped me finally understand XYZ. I'd recommend it to anyone still learning this concept.
+// Wraps every page in Layout component, more in Gatsby doc's: https://www.gatsbyjs.com/docs/reference/config-files/gatsby-browser/#wrapPageElement
+export function wrapPageElement({ element, props }) {
+  return <Layout {...props}>{element}</Layout>
+}
+```
 
-**Note: Delete this note and replace the list above with resources that helped you during the challenge. These could come in handy for anyone viewing your solution or for yourself when you look back on this project in the future.**
+- How to use Gatsby Image from optimized Images
+
+```js
+// Assigning image from the array to its own variable
+    const image1 = getImage(data.allFile.edges[0].node.childrenImageSharp[0])
+
+// GatsbyImage component
+    <GatsbyImage className="image-wrapper" image={image1} alt="numero uno" />
+```
 
 ## Author
 
-- Website - [Add your name here](https://www.your-site.com)
-- Frontend Mentor - [@yourusername](https://www.frontendmentor.io/profile/yourusername)
-- Twitter - [@yourusername](https://www.twitter.com/yourusername)
-
-**Note: Delete this note and add/remove/edit lines above based on what links you'd like to share.**
-
-## Acknowledgments
-
-This is where you can give a hat tip to anyone who helped you out on this project. Perhaps you worked in a team or got some inspiration from someone else's solution. This is the perfect place to give them some credit.
-
-**Note: Delete this note and edit this section's content as necessary. If you completed this challenge by yourself, feel free to delete this section entirely.**
+- Frontend Mentor - [@tosia921](https://www.frontendmentor.io/profile/tosia921)
+- LinkedIn - [@Tomasz Posiadala](https://www.linkedin.com/in/tomasz-posiada%C5%82a-3a05391b0/)

@@ -2,6 +2,7 @@
 
 module.exports = {
     plugins: [
+        `gatsby-plugin-styled-components`,
         `gatsby-plugin-image`,
         `gatsby-plugin-sharp`,
         `gatsby-transformer-sharp`, // Needed for dynamic images
